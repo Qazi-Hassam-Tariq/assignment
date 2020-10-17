@@ -1,0 +1,197 @@
+.custom-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.custom-dropdown-wrapper .cdw-trigger {
+  width: 100%;
+  text-align: left;
+  background: white;
+  color: #272638;
+  height: 50px;
+  text-align: left;
+  line-height: 50px;
+  border: 1px solid #62aaaf;
+  border-radius: 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.custom-dropdown-wrapper .cdw-trigger .cdw-trigger-text {
+  width: calc(100% - 60px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  padding-left: 14px;
+}
+
+.custom-dropdown-wrapper .cdw-trigger .cdw-trigger-icon {
+  float: right;
+  width: 39px;
+  text-align: center;
+  position: relative;
+  height: 50px;
+  transition-duration: 0.4s;
+  transition-property: transform;
+}
+
+.custom-dropdown-wrapper .cdw-trigger .cdw-trigger-icon.open {
+  transform: rotate(180deg);
+}
+
+.custom-dropdown-wrapper .cdw-trigger .cdw-trigger-icon .chevron {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid #bbbbbd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-dropdown-wrapper .cdw-trigger:focus {
+  outline: none !important;
+}
+
+.custom-dropdown-wrapper .cdw-body {
+  position: absolute;
+  background: white;
+  left: 0;
+  width: 100%;
+
+  z-index: 3;
+ 
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(230, 230, 230, 1);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(230, 230, 230, 1);
+  box-shadow: 0px 0px 11px 0px rgba(230, 230, 230, 1);
+  border-radius: 8px;
+}
+
+.custom-dropdown-wrapper .cdw-body .cdw-scroll-body {
+  max-height: 204px;
+  overflow-y: auto;
+}
+
+.custom-dropdown-wrapper .cdw-body .cdw-scroll-body::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.custom-dropdown-wrapper .cdw-body .cdw-scroll-body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(124, 124, 124, 0.3);
+}
+ 
+.custom-dropdown-wrapper .cdw-body .cdw-scroll-body::-webkit-scrollbar-thumb {
+  background-color: #62aaaf;
+  outline: 1px solid #62aaaf;
+}
+
+.custom-dropdown-wrapper .cdw-body .cdw-save-btn{
+  border: none;
+    color: #62aaaf;
+    padding: 0;
+    background: none;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.custom-dropdown-wrapper .cdw-body .cdw-save-btn:focus,
+.custom-dropdown-wrapper .cdw-body .cdw-save-btn:hover,
+.custom-dropdown-wrapper .cdw-body .cdw-save-btn:visited {
+  outline: none;
+}
+
+.custom-dropdown-wrapper .cdw-body .cdw-save-btn:hover {
+  border-bottom: 1px solid #62aaaf;
+}
+
+
+.custom-dropdown-wrapper .cdw-option {
+  width: calc(100% - 20px);
+  padding: 0 10px;
+  background: white;
+  color: #272638;
+  min-height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #e8e8e8;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.custom-dropdown-wrapper .cdw-option:hover {
+  background: rgba(0,0,0,0.04)
+}
+
+.custom-dropdown-wrapper .cdw-option:last-child {
+  border: 0;
+}
+
+.custom-dropdown-wrapper .cdw-option .cdw-option-text-wrapper {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.custom-dropdown-wrapper .cdw-option .cdw-option-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  order: 0;
+  flex: 1 1 auto;
+  align-self: center;
+  padding: 10px 0;
+}
+
+.custom-dropdown-wrapper .cdw-option .cdw-option-icon {
+  width: 12px;
+
+  order: 0;
+  flex: 0 1 auto;
+  align-self: center;
+}
+
+.custom-dropdown-wrapper .cdw-option .cdw-custom-input {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+  padding-bottom: 10px;
+}
+
+.custom-dropdown-wrapper .cdw-option .cdw-custom-input input {
+  height: 35px;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  padding: 0 10px;
+  width: calc(100% - 20px);
+}
+
+.custom-dropdown-wrapper .cdw-option .cdw-custom-input input:focus {
+  outline: none;
+}
+
+.custom-dropdown-wrapper .cdw-label {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  padding: 0 4px;
+  background: white;
+  color: #62aaaf;
+  font-size: 11pt;
+  transform: translateY(-50%);
+}
