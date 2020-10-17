@@ -36,6 +36,7 @@ export const DropDownItem: React.FC<Props> = ({ children, handleClick, selected,
               e.preventDefault();
               e.stopPropagation();
             }}
+            className={ (selected && customInput?.value === '') ? 'invalid' : '' } 
             onChange={(e) => customInput?.onChange(e.currentTarget.value)}
           />
         </div>

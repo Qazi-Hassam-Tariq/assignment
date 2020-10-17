@@ -24,16 +24,36 @@ export const DropDown: React.FC<Props> = ({ isOpened = false, toggle, selected, 
     if (selected.length > 0 && !isDirty) setIsDirty(true);
   }, [selected]);
 
-  const toggleAndValidate = (open: boolean, isSubmit: boolean = false) => {
+  const toggleAndValidate = (open: boolean, isSubmit: boolean = false): boolean => {
     toggle(open);
+    
+    let isInputValid: boolean = false;
+
     if (isSubmit) {
       setIsDirty(true);
-      if (selected.length === 0) setIsValid(false);
-      else setIsValid(true);
-      return;
+      if (selected.length === 0) isInputValid = false;
+      else {
+        let validCustomInput = true;
+        options
+          .filter((x) => selected.findIndex((y) => y === x.value) !== -1 && x.customInput)
+          .forEach((x) => (validCustomInput = x.customInput?.value === '' ? false : validCustomInput));
+
+          isInputValid = validCustomInput;
+      }
     }
-    if (selected.length === 0 && isDirty) setIsValid(false);
-    else setIsValid(true);
+    else {
+      if (selected.length === 0 && isDirty) isInputValid = false;
+      else {
+        let validCustomInput = true;
+        options
+          .filter((x) => selected.findIndex((y) => y === x.value) !== -1 && x.customInput)
+          .forEach((x) => (validCustomInput = x.customInput?.value === '' ? false : validCustomInput));
+
+          isInputValid = validCustomInput;
+      }
+    }
+    setIsValid(isInputValid);
+    return isInputValid;
   };
 
   useOutsideClick(wrapperRef, () => isOpened && (isDirty ? toggleAndValidate(false) : toggle(false)));
@@ -66,8 +86,8 @@ export const DropDown: React.FC<Props> = ({ isOpened = false, toggle, selected, 
             type="button"
             className="cdw-save-btn"
             onClick={() => {
-              toggleAndValidate(false, true);
-              submit();
+              toggleAndValidate(false, true) && submit();
+              
             }}
           >
             SAVE

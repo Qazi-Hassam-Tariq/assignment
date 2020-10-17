@@ -181,6 +181,10 @@
   width: calc(100% - 20px);
 }
 
+.custom-dropdown-wrapper .cdw-option .cdw-custom-input input.invalid {
+  background: #fff6f6;
+}
+
 .custom-dropdown-wrapper .cdw-option .cdw-custom-input input:focus {
   outline: none;
 }
